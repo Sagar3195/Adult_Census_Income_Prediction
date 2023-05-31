@@ -26,9 +26,9 @@ class DataTransformation:
         This function is responsible for data transformation
         '''
         try:
-            numerical_columns= ['age', 'fnlwgt', 'education-num', 'capital-gain', 'capital-loss',
+            numerical_columns= ['age', 'education-num', 'capital-gain', 'capital-loss',
                                 'hours-per-week']
-            categorical_columns= ['workclass', 'education', 'marital-status', 'occupation',
+            categorical_columns= ['workclass', 'marital-status', 'occupation',
                                   'relationship', 'race', 'sex', 'country']
 
             num_pipeline= Pipeline(
@@ -96,10 +96,10 @@ class DataTransformation:
             test_df['occupation'] = test_df['occupation'].replace("?", np.nan)
             test_df['country'] = test_df['country'].replace("?", np.nan)
 
-            input_feature_train_df= train_df.drop(columns= [drop_columns], axis=1)
+            input_feature_train_df= train_df.drop(columns= drop_columns, axis=1)
             target_feature_train_df= train_df[target_column_name]
 
-            input_feature_test_df= test_df.drop(columns= [drop_columns], axis=1)
+            input_feature_test_df= test_df.drop(columns= drop_columns, axis=1)
             target_feature_test_df= test_df[target_column_name]
 
             logging.info(f"Applying preprocessing object on training dataframe and testing dataframe.")
