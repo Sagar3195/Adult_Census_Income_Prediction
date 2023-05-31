@@ -19,17 +19,7 @@ class DataTransformation:
     def __init__(self):
         self.data_transformation_config= DataTransformationConfig()
 
-    #Create function to remove whitespace from the columns of dataframe
-    def whitespace_remove(df):
-    #Iterating over the columns of dataframe
-        for col in df.columns:
-            #check data type of each columns of dataframe
-            if df[col].dtype=='object':
-                #using strip function to remove whitespace
-                df[col] = df[col].map(str.strip)
-            else:
-                #If the condition is Fale then it will do nothing
-                pass
+
 
     def get_data_transformer_object(self):
         '''
@@ -91,7 +81,9 @@ class DataTransformation:
 
             drop_columns= ['education', 'fnlwgt', target_column_name]
 
-            train_df= train_df.apply(white)
+            #Encoding Target variable 
+            train_df['salary'] = train_df['salary'].map({'<=50K':0, '>50K':1})            
+            test_df['salary'] = test_df['salary'].map({'<=50K':0, '>50K':1})
             
             #In workclass, occupation and country features has '?' value 
             #So we will replace this value with  np.nan values.
@@ -104,10 +96,10 @@ class DataTransformation:
             test_df['occupation'] = test_df['occupation'].replace("?", np.nan)
             test_df['country'] = test_df['country'].replace("?", np.nan)
 
-            input_feature_train_df= train_df.drop(columns= [target_column_name], axis=1)
+            input_feature_train_df= train_df.drop(columns= [drop_columns], axis=1)
             target_feature_train_df= train_df[target_column_name]
 
-            input_feature_test_df= test_df.drop(columns= [target_column_name], axis=1)
+            input_feature_test_df= test_df.drop(columns= [drop_columns], axis=1)
             target_feature_test_df= test_df[target_column_name]
 
             logging.info(f"Applying preprocessing object on training dataframe and testing dataframe.")
