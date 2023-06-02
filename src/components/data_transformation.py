@@ -26,9 +26,9 @@ class DataTransformation:
         This function is responsible for data transformation
         '''
         try:
-            numerical_columns= ['age', 'education-num', 'capital-gain', 'capital-loss',
-                                'hours-per-week']
-            categorical_columns= ['workclass', 'marital-status', 'occupation',
+            numerical_columns= ['age', 'education_num', 'capital_gain', 'capital_loss',
+                                'hours_per_week']
+            categorical_columns= ['workclass', 'marital_status', 'occupation',
                                   'relationship', 'race', 'sex', 'country']
 
             num_pipeline= Pipeline(
@@ -110,7 +110,7 @@ class DataTransformation:
             train_arr= np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
 
             test_arr= np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
-
+            logging.info(f"Train array:\n{train_arr}") 
             logging.info(f"Saved preprocessing object.")
 
             save_object(
