@@ -36,28 +36,28 @@ class CustomData:
     def __init__(self,
             age:int,
             workclass:int,
-            education-num:int,
-            marital-status:int,
+            education_num:int,
+            marital_status:int,
             occupation:int,
             relationship:int,
             race:int,
             sex:int,
-            capital-gain:int,
-            capital-loss:int,
-            hours-per-week:int,
+            capital_gain:int,
+            capital_loss:int,
+            hours_per_week:int,
             country:int):
 
         self.age = age
         self.workclass = workclass
-        self.education-num = education-num
-        self.marital-status = marital-status
+        self.education_num = education_num
+        self.marital_status = marital_status
         self.occupation = occupation
         self.relationship = relationship
         self.race = race
         self.sex = sex
-        self.capital-gain = capital-gain
-        self.capital-loss = capital-loss
-        self.hours-per-week = hours-per-week
+        self.capital_gain = capital_gain
+        self.capital_loss = capital_loss
+        self.hours_per_week = hours_per_week
         self.country = country
         
 
@@ -66,15 +66,15 @@ class CustomData:
             custom_data_input_dict = {
                 "age":[self.age],
                 "workclass":[self.workclass], 
-                "education-num":[self.education-num], 
-                "marital-status":[self.marital-status],
+                "education_num":[self.education_num], 
+                "marital_status":[self.marital_status],
                 "occupation":[self.occupation],
                 "relationship":[self.relationship],
                 "race":[self.race], 
                 "sex":[self.sex],
-                "capital-gain":[self.capital-gain], 
-                "capital-loss":[self.capital-loss], 
-                "hours-per-week":[self.hours-per-week], 
+                "capital_gain":[self.capital_gain], 
+                "capital_loss":[self.capital_loss], 
+                "hours_per_week":[self.hours_per_week], 
                 "country":[self.country] 
             }
 
